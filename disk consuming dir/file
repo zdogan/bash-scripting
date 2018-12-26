@@ -4,3 +4,13 @@ du -sk /*|sort -n -r|head -4
 
 #How to check top 10 disk consuming files in the system?
 find / -type f -printf '%s %p\n' |sort -n -r |head -10
+
+#How to list users which UID less that 100 (awk) ? 
+awk -F: '$3<100' /etc/passwd 
+
+# How to find all of the “.tmp” files in /home/* and delete them!
+#find the files using find, then delete them using rm -
+find /home/ -name ‘*.tmp’ | xargs rm –rf.
+
+#How to list usernames which starts with ab or xy!
+egrep "^ab|^xy" /etc/passwd|cut -d: -f1 
