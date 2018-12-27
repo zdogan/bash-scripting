@@ -14,3 +14,10 @@ find /home/ -name ‘*.tmp’ | xargs rm –rf.
 
 #How to list usernames which starts with ab or xy!
 egrep "^ab|^xy" /etc/passwd|cut -d: -f1 
+
+#Executing Commands on I/O
+• xargs • Reads items from the standard input and allows commands to be run on the items.
+• <commands> | <xargs> <command>
+• Example • ls | grep test | xargs rm –fv
+» Lists all items in the current directory, then filters the results for the string test, then performs a file
+removal with verbose output. This basically removes all files that have the string test in them.
