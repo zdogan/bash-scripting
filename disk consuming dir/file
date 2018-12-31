@@ -6,7 +6,6 @@ find  -type -d -exec chmod  {} + <path>
 #How to check top 4 disk consuming directories in "/"?
 du -sk /*|sort -n -r|head -4
 
-
 #How to check top 10 disk consuming files in the system?
 find / -type f -printf '%s %p\n' |sort -n -r |head -10
 
