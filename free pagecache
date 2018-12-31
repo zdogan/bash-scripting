@@ -1,0 +1,10 @@
+#script that allocated a ton of memory just to get rid of the cache.
+To free pagecache:
+# echo 1 > /proc/sys/vm/drop_caches
+To free dentries(directory entry) and inodes:
+# echo 2 > /proc/sys/vm/drop_caches
+To free pagecache, dentries and inodes:
+echo 3 > /proc/sys/vm/drop_caches
+This is a non-destructive operation in normal scenarios
+and will only free things that are completely unused. Dirty objects will continue to be in use until written out to disk and are not freeable.
+However it is always preferred to run "sync" first to flush useful things out to disk.
